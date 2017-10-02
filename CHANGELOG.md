@@ -1,3 +1,67 @@
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/NativeScript/nativescript-angular/compare/3.1.3...4.2.0) (2017-08-09)
+
+### Features
+
+* Angular 4.2 support ([#842](https://github.com/NativeScript/nativescript-angular/issues/842)) ([eb3fd81](https://github.com/NativeScript/nativescript-angular/commit/eb3fd81))
+
+
+### BREAKING CHANGES
+
+* `NativeScriptModule` should be imported only in the root application
+module (usually named `AppModule`).
+All other NgModules in the app (both feature and lazy-loaded ones)
+should import the `NativeScriptCommonModule` instead.
+The behavior is aligned with `BrowserModule` and `CommonModule` in web
+Angular apps described in [this](https://angular.io/guide/ngmodule-faq#q-browser-vs-common-module) guide.
+
+Migration steps:
+In all NgModules, except the root one (`AppModule`), replace:
+```
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+…
+@NgModule({
+    imports: [
+        NativeScriptModule,
+    ]
+…
+})
+```
+with:
+```
+import { NativeScriptCommonModule } from "nativescript-angular/common";
+…
+@NgModule({
+    imports: [
+        NativeScriptCommonModule,
+    ]
+…
+})
+```
+
+
+
+<a name="3.1.3"></a>
+## [3.1.3](https://github.com/NativeScript/nativescript-angular/compare/3.1.2...3.1.3) (2017-07-19)
+
+
+### Bug Fixes
+
+* **action-bar:** ignore InvisibleNodes when adding title ([#903](https://github.com/NativeScript/nativescript-angular/issues/903)) ([8308e45](https://github.com/NativeScript/nativescript-angular/commit/8308e45)), closes [#897](https://github.com/NativeScript/nativescript-angular/issues/897)
+* asynchronously destroy items evicted on clearHistory navigation ([#847](https://github.com/NativeScript/nativescript-angular/issues/847)) ([448412a](https://github.com/NativeScript/nativescript-angular/commit/448412a)), closes [#829](https://github.com/NativeScript/nativescript-angular/issues/829)
+
+
+
+<a name="3.1.2"></a>
+## [3.1.2](https://github.com/NativeScript/nativescript-angular/compare/3.1.1...3.1.2) (2017-07-12)
+
+
+### Bug Fixes
+
+* **renderer:** attach `CommentNode`s to visual tree ([#888](https://github.com/NativeScript/nativescript-angular/issues/888)) ([65359fa](https://github.com/NativeScript/nativescript-angular/commit/65359fa)), closes [#872](https://github.com/NativeScript/nativescript-angular/issues/872)
+
+
+
 <a name="3.1.1"></a>
 ## [3.1.1](https://github.com/NativeScript/nativescript-angular/compare/3.1.0...3.1.1) (2017-06-29)
 
